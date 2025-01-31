@@ -1,7 +1,7 @@
 import { prismadb } from "@/db/db.config";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
  
     try {
         const categories = await prismadb.category.findMany({
@@ -16,6 +16,8 @@ export async function GET(req: NextRequest) {
              status : 200
         });
     } catch (error) {
+        console.log(error);
+        
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }

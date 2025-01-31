@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const ImageContainer = ({ product }: { product: productProps }) => {
   useEffect(() => {
     localStorage.getItem("productId");
-  }, [product, localStorage.getItem("productId")]);
+  }, [product]);
   return (
     <>
       {product || localStorage.getItem("productId") ? (
